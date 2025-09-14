@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fd775a6effe30489d995cedd8844cc, type: 3}
+  m_Name: WebglAdsData
+  m_EditorClassIdentifier: 
+  webglAdEvents:
+  - gameEvent: 7
+    AddToCall: 2
+    everyLevel: 1
+    calls: 0
