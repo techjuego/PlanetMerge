@@ -9461,7 +9461,7 @@ MonoBehaviour:
   m_BombEffect: {fileID: 9100685673373541579, guid: 04eff91323462494e9ef45dcf9217e3f, type: 3}
   currentMergeItem: {fileID: 0}
   rangeSize: 0
-  MaxRangeSize: 10
+  MaxRangeSize: 5
   spawnedItemIndex: 0
 --- !u!4 &2111773721
 Transform:
