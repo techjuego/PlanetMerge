@@ -138,7 +138,7 @@ MonoBehaviour:
   gameplayIndex: 0
   itemIndex: 3
   itemState: 0
-  limit_x: 2.9
+  limit_x: 0
   m_DestorySymbol: {fileID: 1049552485478689661}
 --- !u!50 &2154693583068336093
 Rigidbody2D:
