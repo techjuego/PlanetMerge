@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class AdsHandler : Singleton<AdsHandler>
     {
@@ -60,6 +60,14 @@ namespace TechJuego.FruitSliceMerge.Monetization
         {
 #if UNITY_ANDROID || UNITY_IPHONE
             m_MobileAdsHandler.ShowBanner();
+#endif
+#if UNITY_WEBGL
+#endif
+        }
+        public void HideBanner()
+        {
+#if UNITY_ANDROID || UNITY_IPHONE
+            m_MobileAdsHandler.HideBanner();
 #endif
 #if UNITY_WEBGL
 #endif

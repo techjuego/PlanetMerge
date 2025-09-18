@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     /// <summary>
     /// Inherit from this base class to create a singleton.

@@ -3,10 +3,10 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using TechJuego.FruitSliceMerge.Utils;
-using TechJuego.FruitSliceMerge.Sound;
+using TechJuego.PlanetMerge.Utils;
+using TechJuego.PlanetMerge.Sound;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class HUDPanel : MonoBehaviour
     {

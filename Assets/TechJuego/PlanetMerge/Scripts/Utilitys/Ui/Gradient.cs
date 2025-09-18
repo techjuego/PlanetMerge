@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class Gradient : BaseMeshEffect
     {

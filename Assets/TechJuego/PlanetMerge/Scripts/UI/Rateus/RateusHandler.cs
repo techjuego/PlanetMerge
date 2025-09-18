@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TechJuego.FruitSliceMerge.Rateus;
-namespace TechJuego.FruitSliceMerge.Rateus
+using TechJuego.PlanetMerge.Rateus;
+namespace TechJuego.PlanetMerge.Rateus
 {
     public class RateusHandler : Singleton<RateusHandler>
     {

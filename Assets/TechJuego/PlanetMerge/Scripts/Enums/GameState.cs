@@ -1,4 +1,4 @@
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     /// <summary>
     /// Represents different states of the game.
@@ -11,7 +11,6 @@ namespace TechJuego.FruitSliceMerge
         Leaderboard,
         PrivacyPolicy,
         InGameSetting,
-        Gameplay,
         GameOver
     }
 }

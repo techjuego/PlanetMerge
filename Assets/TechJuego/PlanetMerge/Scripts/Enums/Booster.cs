@@ -1,4 +1,4 @@
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public enum Booster
     {

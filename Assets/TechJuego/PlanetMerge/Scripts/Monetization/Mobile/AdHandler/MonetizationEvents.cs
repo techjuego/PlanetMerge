@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class MonetizationEvents
     {

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TechJuego.FruitSliceMerge.Utils;
-using TechJuego.FruitSliceMerge.Sound;
+using TechJuego.PlanetMerge.Utils;
+using TechJuego.PlanetMerge.Sound;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class PanelBase : MonoBehaviour
     {

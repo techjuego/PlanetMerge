@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TechJuego.FruitSliceMerge.Utils;
-using TechJuego.FruitSliceMerge.Monetization;
+using TechJuego.PlanetMerge.Utils;
+using TechJuego.PlanetMerge.Monetization;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class RewardVideo : MonoBehaviour
     {

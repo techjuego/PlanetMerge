@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using GamePix;
 #endif
 using UnityEngine;
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class GamePixHandler : MonoBehaviour, IAdGetDetail
     {

@@ -1,4 +1,4 @@
-﻿namespace TechJuego.FruitSliceMerge.Sound
+﻿namespace TechJuego.PlanetMerge.Sound
 {
     // Class to manage sound-related events using delegates
     public class SoundEvents

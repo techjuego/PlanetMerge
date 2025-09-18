@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public enum ChangeEffect
     {

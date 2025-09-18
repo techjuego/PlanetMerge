@@ -1,5 +1,5 @@
 ﻿using System;
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     [Serializable]
     public class AdEvents

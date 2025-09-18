@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public interface IAdGetDetail
     {

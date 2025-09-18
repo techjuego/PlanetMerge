@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge.SafeArea
+namespace TechJuego.PlanetMerge.SafeArea
 {
     [RequireComponent(typeof(RectTransform))]
     public class SafeAreaPanel : MonoBehaviour

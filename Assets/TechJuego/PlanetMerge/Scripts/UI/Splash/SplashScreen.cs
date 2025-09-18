@@ -1,11 +1,11 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TechJuego.FruitSliceMerge.Utils;
+using TechJuego.PlanetMerge.Utils;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class SplashScreen : MonoBehaviour
     {

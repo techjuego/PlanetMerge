@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TechJuego.FruitSliceMerge.Monetization;
+using TechJuego.PlanetMerge.Monetization;
 using UnityEngine;
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class GameArterHandler : MonoBehaviour, IAdGetDetail
     {

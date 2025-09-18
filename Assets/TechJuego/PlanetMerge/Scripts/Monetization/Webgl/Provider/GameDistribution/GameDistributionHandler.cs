@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class GameDistributionHandler : MonoBehaviour, IAdGetDetail
     {
@@ -37,6 +37,7 @@ namespace TechJuego.FruitSliceMerge.Monetization
         private Action OnCompleteReward;
         public void ShowRewardAds(string id, Action OnComplete)
         {
+            Debug.Log("Work");
             OnCompleteReward = OnComplete;
 #if GAMEDISTRIBUTION
             GameDistribution.Instance.ShowRewardedAd();

@@ -1,10 +1,10 @@
-﻿using TechJuego.FruitSliceMerge.Monetization;
-using TechJuego.FruitSliceMerge.Sound;
+﻿using TechJuego.PlanetMerge.Monetization;
+using TechJuego.PlanetMerge.Sound;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class MainMenuPanel : MonoBehaviour
     {
@@ -35,6 +35,7 @@ namespace TechJuego.FruitSliceMerge
             if (MonetizationEvents.HasConcentSet())
             {
                 m_privacyPolicy.gameObject.SetActive(false);
+                AdsHandler.Instance.ShowBanner();
             }
             else
             {

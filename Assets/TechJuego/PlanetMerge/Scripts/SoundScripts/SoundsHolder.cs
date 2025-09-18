@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge.Sound
+namespace TechJuego.PlanetMerge.Sound
 {
     // This scriptable object acts as a container for storing sound clips.
     public class SoundsHolder : ScriptableObject

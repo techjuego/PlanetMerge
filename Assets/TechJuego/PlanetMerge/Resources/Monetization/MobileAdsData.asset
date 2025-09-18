@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: MobileAdsData
   m_EditorClassIdentifier: 
   isUnityPresent: 1
-  isAdmobPresent: 1
+  isAdmobPresent: 0
   providerAdded:
   - Unity
-  - Admob
   adsEvents:
-  - gameEvent: 7
+  - gameEvent: 6
     AddToCall: 1
-    everyLevel: 2
-    calls: 0
+    everyLevel: 1
+    calls: 1
   monitizationAds:
   - providers: Unity
     AdType: 1
@@ -31,18 +30,6 @@ MonoBehaviour:
     AdType: 2
     Android_ID: Rewarded_Android
     IOS_ID: Rewarded_iOS
-  - providers: Admob
-    AdType: 1
-    Android_ID: ca-app-pub-1245350599133291/2032863164
-    IOS_ID: ca-app-pub-1245350599133291/2032863164
-  - providers: Admob
-    AdType: 2
-    Android_ID: ca-app-pub-1245350599133291/3592538609
-    IOS_ID: ca-app-pub-1245350599133291/3592538609
-  - providers: Admob
-    AdType: 0
-    Android_ID: ca-app-pub-1245350599133291/5486158489
-    IOS_ID: ca-app-pub-1245350599133291/5486158489
   AdmobAppID_Android: ca-app-pub-1245350599133291~6457962441
   AdmobAppID_IOS: ca-app-pub-1245350599133291~6457962441
   UnityAppID_Android: 5944929

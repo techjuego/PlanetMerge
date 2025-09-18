@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundClips:
   - clipName: Click
-    clip: {fileID: 8300000, guid: c3a3982fe621c6c4485da0ce607b85cb, type: 3}
+    clip: {fileID: 8300000, guid: eb5c1a5a5e1a2494786546c3d97a5311, type: 3}
     volume: 1
   - clipName: Merge
-    clip: {fileID: 8300000, guid: 1823c58a4f31f4145a5a1439c98b4d36, type: 3}
+    clip: {fileID: 8300000, guid: aa67fca0396c1be4f80cd2c170720fd0, type: 3}
     volume: 1
   musicClip:
   - clipName: BGMUSIC
-    clip: {fileID: 8300000, guid: 62bf06e1bd19bc644a8431966b1a53b2, type: 3}
+    clip: {fileID: 8300000, guid: d6a790efe2037f04492c627e1e31cc96, type: 3}
     volume: 1

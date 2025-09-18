@@ -1,4 +1,4 @@
-﻿namespace TechJuego.FruitSliceMerge.Monetization
+﻿namespace TechJuego.PlanetMerge.Monetization
 {
     [System.Serializable]
     public class MonitizationAds

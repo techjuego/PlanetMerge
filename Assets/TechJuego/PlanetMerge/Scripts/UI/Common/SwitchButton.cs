@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class SwitchButton : MonoBehaviour
     {

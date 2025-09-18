@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge.Sound
+namespace TechJuego.PlanetMerge.Sound
 {
 
     // SoundManager is responsible for managing and playing sound effects and background music
@@ -183,7 +183,18 @@ namespace TechJuego.FruitSliceMerge.Sound
         {
             if (SoundSetting.GetMusic())
             {
-                m_BgMusic?.Play();
+                if(m_BgMusic == null)
+                {
+                    if (m_soundsHolder.soundClips.Count > 0)
+                    {
+                        m_BgMusic.clip = m_soundsHolder.soundClips[0].clip;
+                        m_BgMusic?.Play();
+                    }
+                }
+                else
+                {
+                    m_BgMusic?.Play();
+                }
             }
             else
             {

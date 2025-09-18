@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     // Class to manage game-related events using delegates
     public class GameEvents

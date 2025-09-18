@@ -3,7 +3,7 @@ using UnityEngine;
 #if CRAZYGAMES
 using CrazyGames;
 #endif
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class CrazyAdsHandler : MonoBehaviour, IAdGetDetail
     {

@@ -2,12 +2,11 @@
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
 #if UnityAds
     public class UnityAdHandler : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener, IAdGetDetail
     {
-        public AdManager m_AdManager;
         public string _adUnitId;
         public AdType adType;
         public void Initialize()

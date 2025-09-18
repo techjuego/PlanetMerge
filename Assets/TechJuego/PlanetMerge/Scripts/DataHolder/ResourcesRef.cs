@@ -1,7 +1,7 @@
-using TechJuego.FruitSliceMerge.Monetization;
-using TechJuego.FruitSliceMerge.Rateus;
+using TechJuego.PlanetMerge.Monetization;
+using TechJuego.PlanetMerge.Rateus;
 using UnityEngine;
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class ResourcesRef
     {

@@ -1,8 +1,14 @@
 2048 Merge is governed by the Asset Store EULA; however, the following components are governed by the licenses indicated below:
 
 A. Music
-    - Assets/PlanetMerge/Audio/Music/Between Our Hearts.wav
-    - License details available in https://royaltyfreemusiclibrary.com/license
+    - Assets/TechJuego/PlanetMerge/Audio/Music/Relaxation Music.mp3
+    - License details available in https://freesound.org/s/521233/ 
+
+    - Assets/TechJuego/PlanetMerge/Audio/Effect/Blip.wav
+    - License details available in https://freesound.org/s/757175/
+
+    - Assets/TechJuego/PlanetMerge/Audio/Effect/Points.ogg
+    - License details available in https://freesound.org/s/745022/ 
 
 B. TextMesh Pro asset 
     - Asset Store EULA

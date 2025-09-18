@@ -6,7 +6,7 @@ using UnityEngine;
 using YG;
 #endif
 
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class YandexHandler : MonoBehaviour, IAdGetDetail
     {

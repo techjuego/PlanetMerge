@@ -2,7 +2,7 @@
 using GoogleMobileAds.Api;
 #endif
 using UnityEngine;
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class AdmobAdsInitializer : MonoBehaviour
     {

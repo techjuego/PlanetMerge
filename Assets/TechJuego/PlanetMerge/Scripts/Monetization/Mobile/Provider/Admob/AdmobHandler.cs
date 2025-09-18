@@ -3,7 +3,7 @@ using GoogleMobileAds.Api;
 #endif
 using System;
 using UnityEngine;
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class AdmobHandler : MonoBehaviour, IAdGetDetail
     {
@@ -75,6 +75,11 @@ namespace TechJuego.FruitSliceMerge.Monetization
         public bool IsShowingAd()
         {
             return false;
+        }
+
+        public void LoadBanner()
+        {
+            
         }
 
 #if ADMOB
@@ -149,6 +154,7 @@ namespace TechJuego.FruitSliceMerge.Monetization
         /// </summary>
         public void ShowBannerAd()
     {
+            LoadBanner();
         if (_bannerView != null)
         {
             Debug.Log("Showing banner view.");

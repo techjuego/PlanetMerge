@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge.Rateus
+namespace TechJuego.PlanetMerge.Rateus
 {
     // Class responsible for managing the "Rate Us" setting
     public class RateUsSetting

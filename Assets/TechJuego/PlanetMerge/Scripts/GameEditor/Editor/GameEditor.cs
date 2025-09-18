@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEditor.SceneManagement;
 using System;
-using TechJuego.FruitSliceMerge.Monetization;
-using TechJuego.FruitSliceMerge.Sound;
+using TechJuego.PlanetMerge.Monetization;
+using TechJuego.PlanetMerge.Sound;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     /// <summary>
     /// Custom Editor Window for managing game settings like sound, ads, and about section.
@@ -21,7 +21,7 @@ namespace TechJuego.FruitSliceMerge
         /// <summary>
         /// Initializes and opens the Game Editor window.
         /// </summary>
-        [MenuItem("Tech Juego/Game editor and settings")]
+        [MenuItem("Window/Tech Juego/Game editor and settings")]
         public static void Init()
         {
             // Get existing open window or if none, make a new one:

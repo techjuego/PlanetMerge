@@ -1,8 +1,8 @@
 using UnityEngine;
-using TechJuego.FruitSliceMerge.Sound;
+using TechJuego.PlanetMerge.Sound;
 using System.Collections.Generic;
-
-namespace TechJuego.FruitSliceMerge
+//using TechJuego.PlanetMerge.HapticFeedback;
+namespace TechJuego.PlanetMerge
 {
     // The GameManager class handles game mechanics such as spawning items, combining them, and tracking game state.
     public class GameManager : MonoBehaviour
@@ -179,52 +179,64 @@ namespace TechJuego.FruitSliceMerge
             // Instantiate the merge effect at the new position
             var effect = Instantiate(m_MergeEffect);
             effect.transform.position = newPos;
+            //if (HapticSetting.GetVibrate())
+            //{
+            //    HapticCall.Instance.MediumHaptic();
+            //}
         }
     
         private MergeItem destroyItem;
         private void Update()
         {
-            if (m_BombSelected)
+            if (GameStateHandler.Instance.m_GameState == GameState.InProgress)
             {
-                Vector2 mousePos1 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                m_BombImage.transform.position = new Vector3(mousePos1.x, mousePos1.y, 0);
-
-                if (Input.GetMouseButtonDown(0)) // Left mouse click
+                if (m_BombSelected)
                 {
-                    // Convert mouse position (screen space) to world position
-                    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    Vector2 mousePos1 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                    // Perform raycast at that position
-                    RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+                    m_BombImage.transform.position = new Vector3(mousePos1.x, mousePos1.y, 0);
 
-                    if (hit.collider != null)
+                    if (Input.GetMouseButtonDown(0)) // Left mouse click
                     {
-                        Debug.Log("Clicked on: " + hit.collider.name);
+                        // Convert mouse position (screen space) to world position
+                        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                        if (hit.transform.TryGetComponent(out MergeItem mergeItem))
+                        // Perform raycast at that position
+                        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+
+                        if (hit.collider != null)
                         {
-                            if (mergeItem.itemState != ItemState.Ready)
+                            Debug.Log("Clicked on: " + hit.collider.name);
+
+                            if (hit.transform.TryGetComponent(out MergeItem mergeItem))
                             {
-                                destroyItem = mergeItem;
+                                if (mergeItem.itemState != ItemState.Ready)
+                                {
+                                    destroyItem = mergeItem;
+                                }
                             }
                         }
                     }
-                }
-                if (Input.GetMouseButtonUp(0))
-                {
-                    if(destroyItem != null)
+                    if (Input.GetMouseButtonUp(0))
                     {
-                        DataHandler.Instance.BombCount--;
-                        if (DataHandler.Instance.BombCount <= 0)
+                        if (destroyItem != null)
                         {
-                            DataHandler.Instance.BombCount = 0;
+                            DataHandler.Instance.BombCount--;
+                            if (DataHandler.Instance.BombCount <= 0)
+                            {
+                                DataHandler.Instance.BombCount = 0;
+                            }
+                            m_BombSelected = false;
+                            GameEvents.OnUseBooster?.Invoke(Booster.Bomb);
+                            ShowBombEffect(destroyItem.transform.position);
+                            Destroy(destroyItem.gameObject);
+                            m_BombImage.SetActive(false);
+
+                            //if (HapticSetting.GetVibrate())
+                            //{
+                            //    HapticCall.Instance.HeavyHaptic();
+                            //}
                         }
-                        m_BombSelected = false;
-                        GameEvents.OnUseBooster?.Invoke(Booster.Bomb);
-                        ShowBombEffect(destroyItem.transform.position);
-                        Destroy(destroyItem.gameObject);
-                        m_BombImage.SetActive(false);
                     }
                 }
             }

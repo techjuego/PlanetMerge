@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TechJuego.FruitSliceMerge.Utils;
-using TechJuego.FruitSliceMerge.Rateus;
-using TechJuego.FruitSliceMerge.Sound;
+using TechJuego.PlanetMerge.Utils;
+using TechJuego.PlanetMerge.Rateus;
+using TechJuego.PlanetMerge.Sound;
 
-namespace TechJuego.FruitSliceMerge.Rateus
+namespace TechJuego.PlanetMerge.Rateus
 {
     // Class responsible for handling the "Rate Us" popup
     public class RateUsPopup : MonoBehaviour

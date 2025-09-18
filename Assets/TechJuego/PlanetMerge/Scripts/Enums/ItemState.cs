@@ -1,4 +1,4 @@
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     /// <summary>
     /// Represents different states of an item in the game.

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge.Rateus
+namespace TechJuego.PlanetMerge.Rateus
 {
     /// <summary>
     /// Properties from the settings window for handling "Rate Us" functionality.

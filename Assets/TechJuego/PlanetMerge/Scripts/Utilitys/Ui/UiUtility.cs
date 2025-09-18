@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-namespace TechJuego.FruitSliceMerge.Utils
+namespace TechJuego.PlanetMerge.Utils
 {
     public class UiUtility
     {

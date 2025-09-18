@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace TechJuego.FruitSliceMerge.Sound
+namespace TechJuego.PlanetMerge.Sound
 {
     // Serializable class for managing sound clips
     [Serializable]

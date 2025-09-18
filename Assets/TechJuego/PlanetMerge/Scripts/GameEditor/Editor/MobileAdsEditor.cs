@@ -1,8 +1,8 @@
 using System;
-using TechJuego.FruitSliceMerge.Monetization;
+using TechJuego.PlanetMerge.Monetization;
 using UnityEditor;
 using UnityEngine;
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class MobileAdsEditor
     {

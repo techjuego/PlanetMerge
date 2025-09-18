@@ -1,4 +1,4 @@
-﻿namespace TechJuego.FruitSliceMerge
+﻿namespace TechJuego.PlanetMerge
 {
     public class WebglSymbols
     {
@@ -8,5 +8,6 @@
         public static readonly string Yandex = "YANDEX";
         public static readonly string GameMonetize = "GAMEMONETIZE";
         public static readonly string WGPlayground = "WGPLAYGROUND";
+        public static readonly string GAMEDISTRIBUTION = "GAMEDISTRIBUTION";
     }
 }

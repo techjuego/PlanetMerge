@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
-namespace TechJuego.FruitSliceMerge.Utils
+namespace TechJuego.PlanetMerge.Utils
 {
     public class TakeScreenShot : MonoBehaviour
     {

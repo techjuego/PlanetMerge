@@ -2,7 +2,7 @@
 #if UnityAds
 using UnityEngine.Advertisements;
 
-namespace TechJuego.Framework.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class UnityAdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     {
@@ -10,17 +10,17 @@ namespace TechJuego.Framework.Monetization
         string gameid;
         public void Initialize()
         {
-            if (!string.IsNullOrEmpty(MobileAdsHandler.Instance.m_AdManager.UnityAppID_Android))
+            if (!string.IsNullOrEmpty(MobileAdsHandler.Instance.m_MobileAdsData.UnityAppID_Android))
             {
 #if UNITY_ANDROID
-                gameid = AdsHandler.Instance.m_AdManager.UnityAppID_Android;
+                gameid = MobileAdsHandler.Instance.m_MobileAdsData.UnityAppID_Android;
 #endif
                 Advertisement.Initialize(gameid, MobileAdsHandler.Instance.testMode, this);
             }
-            if (!string.IsNullOrEmpty(MobileAdsHandler.Instance.m_AdManager.AdmobAppID_IOS))
+            if (!string.IsNullOrEmpty(MobileAdsHandler.Instance.m_MobileAdsData.AdmobAppID_IOS))
             {
 #if UNITY_IPHONE
-                gameid = AdsHandler.Instance.m_AdManager.UnityAppID_IOS;
+                gameid = MobileAdsHandler.Instance.m_MobileAdsData.AdmobAppID_IOS;
 #endif
                 Advertisement.Initialize(gameid, MobileAdsHandler.Instance.testMode, this);
             }
@@ -28,13 +28,12 @@ namespace TechJuego.Framework.Monetization
 
         public void OnInitializationComplete()
         {
-            foreach (var item in MobileAdsHandler.Instance.m_AdManager.monitizationAds)
+            foreach (var item in MobileAdsHandler.Instance.m_MobileAdsData.monitizationAds)
             {
                 Debug.Log(item);
                 if (item.providers == "Unity")
                 {
                     UnityAdHandler unityAdHandler = gameObject.AddComponent<UnityAdHandler>();
-                    unityAdHandler.m_AdManager = MobileAdsHandler.Instance.m_AdManager;
                     unityAdHandler.adType = item.AdType;
 #if UNITY_ANDROID
                     unityAdHandler._adUnitId = item.Android_ID;

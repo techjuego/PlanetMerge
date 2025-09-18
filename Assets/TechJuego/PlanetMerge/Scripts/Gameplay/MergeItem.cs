@@ -1,7 +1,7 @@
 using UnityEngine;
-using TechJuego.FruitSliceMerge.Utils;
+using TechJuego.PlanetMerge.Utils;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     // This class controls the behavior of the mergeable items (fruits) in the game
     public class MergeItem : MonoBehaviour
@@ -62,52 +62,51 @@ namespace TechJuego.FruitSliceMerge
         // Called every frame to update item behavior
         void Update()
         {
-            // Show highlight when the item is ready for interaction
-            if (itemState == ItemState.Ready)
-            {
-                GameEvents.OnMosueDown?.Invoke(transform.position);
-            }
-            else
-            {
-               // m_Highlight.gameObject.SetActive(false);
-            }
-
-            // Prevent interaction if the pointer is over a UI element
-            if (UiUtility.IsPointerOverUIObject())
-            {
-                return;
-            }
-
-            // Ensure game logic runs only when the game state is 'InProgress'
-            if (GameStateHandler.Instance.m_GameState != GameState.InProgress)
-            {
-                return;
-            }
-
-            if (GameManager.Instance.m_BombSelected)
-                return;
-
-      
-                // Handle item dragging behavior when it is in the 'Ready' state
-             if (GameStateHandler.Instance.m_GameState == GameState.InProgress && itemState == ItemState.Ready)
-             {
-                
-                    if (Input.GetMouseButtonDown(0)) // On mouse down, start dragging
+                // Show highlight when the item is ready for interaction
+                if (itemState == ItemState.Ready)
                 {
-                    isDraging = true;
-                    offset = transform.position - GetMouseWorldPosition();  // Store the offset from the mouse
+                    GameEvents.OnMosueDown?.Invoke(transform.position);
+                }
+                else
+                {
+                    // m_Highlight.gameObject.SetActive(false);
                 }
 
-                if (Input.GetMouseButtonUp(0) && isDraging) // On mouse up, stop dragging and drop the item
-                 {
+                // Prevent interaction if the pointer is over a UI element
+                if (UiUtility.IsPointerOverUIObject())
+                {
+                    return;
+                }
+
+                // Ensure game logic runs only when the game state is 'InProgress'
+                if (GameStateHandler.Instance.m_GameState != GameState.InProgress)
+                {
+                    return;
+                }
+
+                if (GameManager.Instance.m_BombSelected)
+                    return;
+
+
+                // Handle item dragging behavior when it is in the 'Ready' state
+                if (GameStateHandler.Instance.m_GameState == GameState.InProgress && itemState == ItemState.Ready)
+                {
+
+                    if (Input.GetMouseButtonDown(0)) // On mouse down, start dragging
+                    {
+                        isDraging = true;
+                        offset = transform.position - GetMouseWorldPosition();  // Store the offset from the mouse
+                    }
+
+                    if (Input.GetMouseButtonUp(0) && isDraging) // On mouse up, stop dragging and drop the item
+                    {
                         isDraging = false;
                         gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;  // Enable gravity
                         itemState = ItemState.Dropping;  // Change state to Dropping
-                        GameStateHandler.Instance.m_GameState = GameState.InProgress;  // Ensure game state remains in progress
                         GameManager.Instance.currentMergeItem = null;
                         GameManager.Instance.CreateItem();  // Create new fruit item
                         GameEvents.OnMosueUp?.Invoke();
-                }
+                    }
 
                     // Update the item position if it is being dragged
                     if (isDraging)

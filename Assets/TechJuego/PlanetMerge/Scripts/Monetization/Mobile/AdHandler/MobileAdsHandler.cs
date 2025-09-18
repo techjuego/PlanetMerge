@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class MobileAdsHandler : MonoBehaviour
     {
@@ -109,6 +109,13 @@ namespace TechJuego.FruitSliceMerge.Monetization
             foreach (var item in adGetDetails)
             {
                 item.ShowBanner(item.GetAdId());
+            }
+        }
+        public void HideBanner()
+        {
+            foreach (var item in adGetDetails)
+            {
+                item.HideBanner();
             }
         }
         public int RewardCount = 0;

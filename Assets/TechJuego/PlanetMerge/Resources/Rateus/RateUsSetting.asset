@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91bfc378277353046af743bed011dc1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c92f12b849fab54b8beab0c57b7e976, type: 3}
   m_Name: RateUsSetting
   m_EditorClassIdentifier: 
-  iosAppID: 
-  googlePlayBundleID: 
-  WhenToShow: 3
+  iosAppID: asdsfas
+  googlePlayBundleID: com.techjuego.planetmerge
+  WhenToShow: 6
   CallOnEvery: 5
   CallCount: 0

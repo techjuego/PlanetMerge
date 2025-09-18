@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-namespace TechJuego.FruitSliceMerge.Utils
+namespace TechJuego.PlanetMerge.Utils
 {
     public class TweenEvent
     {

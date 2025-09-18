@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WebglAdsData
   m_EditorClassIdentifier: 
   webglAdEvents:
-  - gameEvent: 7
+  - gameEvent: 6
     AddToCall: 2
     everyLevel: 1
     calls: 0

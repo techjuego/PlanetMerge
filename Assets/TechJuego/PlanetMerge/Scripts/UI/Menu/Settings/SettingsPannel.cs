@@ -1,11 +1,11 @@
-﻿using TechJuego.FruitSliceMerge;
-using TechJuego.FruitSliceMerge.HapticFeedback;
-using TechJuego.FruitSliceMerge.Sound;
-using TechJuego.FruitSliceMerge.Utils;
+﻿using TechJuego.PlanetMerge;
+//using TechJuego.PlanetMerge.HapticFeedback;
+using TechJuego.PlanetMerge.Sound;
+using TechJuego.PlanetMerge.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     // Class responsible for managing the settings panel
     public class SettingsPannel : MonoBehaviour
@@ -46,7 +46,7 @@ namespace TechJuego.FruitSliceMerge
             m_SfxButton.OnClicEvent.AddListener(Button_SFX);
 
 
-            m_Vibration.Initialize(HapticSetting.HapticViration);
+           // m_Vibration.Initialize(HapticSetting.HapticViration);
 
             // Ensure the settings panel is displayed on top of other UI elements
             transform.SetAsLastSibling();
@@ -60,6 +60,7 @@ namespace TechJuego.FruitSliceMerge
         // Handler for the sound toggle button click
         void Button_Music(bool value)
         {
+            SoundEvents.OnMusicSettingUpdate?.Invoke();
             // Adjust the AudioListener volume based on the sound setting
         }
         void Button_SFX(bool value)

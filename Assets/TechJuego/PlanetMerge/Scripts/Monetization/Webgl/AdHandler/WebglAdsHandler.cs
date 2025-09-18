@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge.Monetization
+namespace TechJuego.PlanetMerge.Monetization
 {
     public class WebglAdsHandler : MonoBehaviour
     {
         private IAdGetDetail m_AdGetDetails;
         private void Awake()
         {
+#if GAMEDISTRIBUTION
             m_AdGetDetails = gameObject.AddComponent<GameDistributionHandler>();
+#endif
 #if CRAZYGAMES
             m_AdGetDetails = gameObject.AddComponent<CrazyAdsHandler>();
 #endif

@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using TechJuego.FruitSliceMerge.Rateus;
+using TechJuego.PlanetMerge.Rateus;
 using UnityEditor;
 using UnityEngine;
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class RateUsEditor
     {

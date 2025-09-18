@@ -1,13 +1,13 @@
 ﻿#if USE_ADMOB
 using GoogleMobileAds.Ump.Api;
 #endif
-using TechJuego.FruitSliceMerge.Monetization;
-using TechJuego.FruitSliceMerge.Sound;
+using TechJuego.PlanetMerge.Monetization;
+using TechJuego.PlanetMerge.Sound;
 using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class PrivacyPolicy : MonoBehaviour
     {

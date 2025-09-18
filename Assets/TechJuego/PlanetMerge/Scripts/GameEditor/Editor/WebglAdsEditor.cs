@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using TechJuego.FruitSliceMerge.Monetization;
+using TechJuego.PlanetMerge.Monetization;
 using UnityEditor;
 using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class WebglAdsEditor
     {
@@ -81,6 +81,8 @@ namespace TechJuego.FruitSliceMerge
                 DrawAdPlatformSection("GameMonetize", WebglSymbols.GameMonetize);
                 DrawAdPlatformSection("WGPlayground", WebglSymbols.WGPlayground);
                 DrawAdPlatformSection("GameArter", WebglSymbols.GameArter);
+                DrawAdPlatformSection("GameDISTRIBUTION", WebglSymbols.GAMEDISTRIBUTION);
+
                 GUILayout.Space(20); // Space for separation between sections
                 GUILayout.Label("Add Call Events", EditorStyles.boldLabel);
                 GUILayout.Label("========================================================================================================");

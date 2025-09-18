@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TechJuego.FruitSliceMerge.Sound;
-using TechJuego.FruitSliceMerge.Utils;
-using TechJuego.FruitSliceMerge.HapticFeedback;
+using TechJuego.PlanetMerge.Sound;
+using TechJuego.PlanetMerge.Utils;
+//using TechJuego.PlanetMerge.HapticFeedback;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class InGameSettingsPanel : MonoBehaviour
     {
@@ -27,11 +27,11 @@ namespace TechJuego.FruitSliceMerge
             m_MusicButton.OnClicEvent.RemoveAllListeners();
             m_MusicButton.OnClicEvent.AddListener(Button_Music);
 
-            m_MusicButton.Initialize(SoundSetting.SfxVariable);
-            m_MusicButton.OnClicEvent.RemoveAllListeners();
-            m_MusicButton.OnClicEvent.AddListener(Button_SFX);
+            m_SFXButton.Initialize(SoundSetting.SfxVariable);
+            m_SFXButton.OnClicEvent.RemoveAllListeners();
+            m_SFXButton.OnClicEvent.AddListener(Button_SFX);
 
-            m_Vibration.Initialize(HapticSetting.HapticViration);
+           // m_Vibration.Initialize(HapticSetting.HapticViration);
 
             OpenEffect();
         }
@@ -42,6 +42,7 @@ namespace TechJuego.FruitSliceMerge
         }
         void Button_Music(bool value)
         {
+            SoundEvents.OnMusicSettingUpdate?.Invoke();
         }
         void Button_SFX(bool value)
         {
@@ -50,6 +51,7 @@ namespace TechJuego.FruitSliceMerge
         {
             CloseEffect();
             SoundEvents.OnPlaySingleShotSound?.Invoke("Click");
+            GameStateHandler.Instance.m_GameState = GameState.InProgress;
         }
         void OpenPolicy()
         {

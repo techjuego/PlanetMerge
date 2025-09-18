@@ -1,6 +1,6 @@
 using UnityEditor;
 using UnityEngine;
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     public class GameplayDataEditor
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace TechJuego.FruitSliceMerge
+namespace TechJuego.PlanetMerge
 {
     // Singleton class for handling game data
     public class DataHandler : Singleton<DataHandler>

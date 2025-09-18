@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TechJuego.FruitSliceMerge.Sound
+namespace TechJuego.PlanetMerge.Sound
 {
     public class SoundSetting
     {
