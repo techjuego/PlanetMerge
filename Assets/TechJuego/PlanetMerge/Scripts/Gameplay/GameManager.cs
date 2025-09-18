@@ -2,6 +2,7 @@ using UnityEngine;
 using TechJuego.PlanetMerge.Sound;
 using System.Collections.Generic;
 //using TechJuego.PlanetMerge.HapticFeedback;
+using TechJuego.PlanetMerge.Monetization;
 namespace TechJuego.PlanetMerge
 {
     // The GameManager class handles game mechanics such as spawning items, combining them, and tracking game state.
@@ -50,7 +51,7 @@ namespace TechJuego.PlanetMerge
 
         // Current score of the game
         private int m_Score = 0;
-
+        private int lastTriggerScore = 0;
         public int Score
         {
             get { return m_Score; }
@@ -58,6 +59,13 @@ namespace TechJuego.PlanetMerge
             {
                 m_Score = value;
                 GameEvents.OnUpdateScore?.Invoke();
+
+                if (m_Score - lastTriggerScore >= 500)
+                {
+                    lastTriggerScore = m_Score - (m_Score % 500); // store the last multiple of 3000
+                    GameDistribution.Instance.ShowAd();
+                    //AdsHandler.Instance.ShowInterstitial();
+                }
             }
         }
         private void Awake()
@@ -169,6 +177,8 @@ namespace TechJuego.PlanetMerge
 
             // Enable gravity on the newly created item
             combineItem.GetComponent<Rigidbody2D>().gravityScale = 1f;
+
+            combineItem.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
             // Play the merging sound effect
             SoundEvents.OnPlaySingleShotSound?.Invoke("Merge");

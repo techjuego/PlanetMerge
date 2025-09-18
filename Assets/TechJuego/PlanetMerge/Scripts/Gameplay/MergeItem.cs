@@ -18,11 +18,14 @@ namespace TechJuego.PlanetMerge
 
         [SerializeField]private GameObject m_DestorySymbol;
 
+        private Rigidbody2D m_Rigidbody2D;
+        
+
         // Called when the object is enabled
         private void OnEnable()
         {
             // Set the limit for X-axis movement based on the camera's size and the item's scale
-            transform.localScale = Vector3.one * 0.4f;
+            transform.localScale = Vector3.one * 0.5f;
             GameEvents.OnSelectBooster += GameEvents_OnSelectBooster;
             GameEvents.OnUseBooster += GameEvents_OnUseBooster;
         }
@@ -45,6 +48,8 @@ namespace TechJuego.PlanetMerge
         // Called when the script is first initialized
         private void Awake()
         {
+            m_Rigidbody2D = GetComponent<Rigidbody2D>();
+            m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
             m_DestorySymbol.SetActive(false);
         }
         // Get the world position of the mouse pointer
@@ -101,7 +106,8 @@ namespace TechJuego.PlanetMerge
                     if (Input.GetMouseButtonUp(0) && isDraging) // On mouse up, stop dragging and drop the item
                     {
                         isDraging = false;
-                        gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;  // Enable gravity
+                        m_Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+                        m_Rigidbody2D.gravityScale = 1f;  // Enable gravity
                         itemState = ItemState.Dropping;  // Change state to Dropping
                         GameManager.Instance.currentMergeItem = null;
                         GameManager.Instance.CreateItem();  // Create new fruit item
@@ -115,8 +121,8 @@ namespace TechJuego.PlanetMerge
                         {
                             // Update the position of the item to follow the mouse
                             Vector3 mousePos = GetMouseWorldPosition() + offset;
-                            gameObject.GetComponent<Transform>().position = new Vector3(Mathf.Clamp(mousePos.x, -limit_x, limit_x),
-                            gameObject.GetComponent<Transform>().position.y, gameObject.GetComponent<Transform>().position.z);
+                            gameObject.transform.position = new Vector3(Mathf.Clamp(mousePos.x, -limit_x, limit_x),
+                            gameObject.transform.position.y, gameObject.transform.position.z);
                         }
                     }
                 }

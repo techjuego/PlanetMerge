@@ -29,7 +29,6 @@ namespace TechJuego.PlanetMerge
                     case GameState.PrivacyPolicy:
                         break;
                 }
-                Debug.Log(">>>>>>>>>>>>>>>>>");
                 AdsHandler.Instance.ShowAds(value);
 #if UNITY_ANDROID || UNITY_IPHONE
                 RateusHandler.Instance.ShowRateus(value);

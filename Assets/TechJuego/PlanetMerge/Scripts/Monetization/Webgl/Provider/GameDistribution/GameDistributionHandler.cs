@@ -33,11 +33,13 @@ namespace TechJuego.PlanetMerge.Monetization
 
         public void ShowInstestitial(string id)
         {
+#if GAMEDISTRIBUTION
+            GameDistribution.Instance.ShowAd();
+#endif
         }
         private Action OnCompleteReward;
         public void ShowRewardAds(string id, Action OnComplete)
         {
-            Debug.Log("Work");
             OnCompleteReward = OnComplete;
 #if GAMEDISTRIBUTION
             GameDistribution.Instance.ShowRewardedAd();

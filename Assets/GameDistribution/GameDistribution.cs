@@ -56,6 +56,7 @@ public class GameDistribution : MonoBehaviour
     }
     internal void ShowAd()
     {
+        Debug.Log(">>>>");
         try
         {
             SDK_ShowAd(null);
