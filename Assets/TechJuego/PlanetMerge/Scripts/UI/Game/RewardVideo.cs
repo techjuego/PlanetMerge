@@ -2,17 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TechJuego.PlanetMerge.Utils;
 using TechJuego.PlanetMerge.Monetization;
+using TechJuego.PlanetMerge.Sound;
 
 namespace TechJuego.PlanetMerge
 {
     public class RewardVideo : MonoBehaviour
     {
         [SerializeField] private Button m_RewardVideo;
+        [SerializeField] private Button m_BackButton;
         private Booster m_Booster;
         private void OnEnable()
         {
             transform.SetAsLastSibling();
             UiUtility.SetButton(m_RewardVideo, OnClickRewardVideo);
+            UiUtility.SetButton(m_BackButton, CloseSettingPannel);
         }
         private void OnClickRewardVideo()
         {
@@ -31,6 +34,11 @@ namespace TechJuego.PlanetMerge
         {
             m_Booster = booster;
             gameObject.SetActive(true);
+        }
+        public void CloseSettingPannel()
+        {
+            SoundEvents.OnPlaySingleShotSound?.Invoke("Click");
+            gameObject.SetActive(false);
         }
     }
 }
