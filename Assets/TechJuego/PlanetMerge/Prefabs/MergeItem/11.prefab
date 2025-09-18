@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayIndex: 0
-  itemIndex: 9
+  itemIndex: 10
   itemState: 0
   limit_x: 2.5
   m_DestorySymbol: {fileID: 8228702088383981030}
