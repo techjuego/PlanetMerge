@@ -53,8 +53,6 @@ namespace TechJuego.PlanetMerge.Monetization
             GameDistribution.OnPreloadRewardedVideo += OnPreloadRewardedVideo;
             GameDistribution.OnRewardedVideoSuccess += OnRewardedVideoSuccess;
             GameDistribution.OnRewardedVideoFailure += OnRewardedVideoFailure;
-            GameDistribution.OnRewardGame += OnRewardGame;
-            GameDistribution.OnEvent += OnEvent;
 #endif
         }
         private void OnDisable()
@@ -65,18 +63,7 @@ namespace TechJuego.PlanetMerge.Monetization
             GameDistribution.OnPreloadRewardedVideo += OnPreloadRewardedVideo;
             GameDistribution.OnRewardedVideoSuccess += OnRewardedVideoSuccess;
             GameDistribution.OnRewardedVideoFailure += OnRewardedVideoFailure;
-            GameDistribution.OnRewardGame += OnRewardGame;
-            GameDistribution.OnEvent += OnEvent;
 #endif
-        }
-        private void OnEvent(string obj)
-        {
-            
-        }
-
-        private void OnRewardGame()
-        {
-            
         }
 
         private void OnRewardedVideoFailure()

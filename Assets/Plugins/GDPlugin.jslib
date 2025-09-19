@@ -1,6 +1,6 @@
 ﻿var functions = {
   SDK_Init: function(gameKey) {
-    gameKey = UTF8ToString(gameKey);
+    gameKey = Pointer_stringify(gameKey);
     window["GD_OPTIONS"] = {
       debug: false, // Enable debugging console. This will set a value in local storage as well, remove this value if you don't want debugging at all. You can also call it by running gdsdk.openConsole() within your browser console.
       gameId: gameKey, // Your gameId which is unique for each one of your games; can be found at your Gamedistribution.com account.
@@ -12,13 +12,8 @@
           case "SDK_GAME_PAUSE":
             SendMessage("GameDistribution", "PauseGameCallback");
             break;
-          case "SDK_REWARDED_WATCH_COMPLETE":
-            SendMessage("GameDistribution", "RewardedCompleteCallback");
-            break;
           case "SDK_ERROR":
             break;
-          default:
-            SendMessage("GameDistribution", "EventCallback", event.name);
         }
       }
     };
@@ -50,7 +45,7 @@
 
   SDK_ShowAd: function(adType) {
     if (typeof gdsdk !== "undefined" && typeof gdsdk.showAd !== "undefined") {
-      adType = UTF8ToString(adType)||gdsdk.AdType.Interstitial;
+      adType=Pointer_stringify(adType)||gdsdk.AdType.Interstitial;
 
       gdsdk.showAd(adType)
       .then(function(response){
@@ -64,37 +59,7 @@
         }
       });
     }
-  },
-
-  SDK_SendEvent : function(options) {
-    options = UTF8ToString(options);
-    if (typeof gdsdk !== "undefined" && typeof gdsdk.sendEvent !== "undefined" && typeof options !== "undefined") {
-      gdsdk.sendEvent(options)
-      .then(function(response){
-       
-        console.log("Game event post message sent Succesfully...")
-        
-      })
-      .catch(function(error){
-        console.log(error.message)
-      });
-    }
   }
-
-  SDK_ExecuteStoreAction: function(options){
-    options = UTF8ToString(options);
-    if (typeof gdsdk !== "undefined" && typeof options !== "undefined") {
-      gdsdk.executeStoreAction(options)
-      .then(function(response){
-       
-        console.log("Game store action post message sent Succesfully...")
-        
-      })
-      .catch(function(error){
-        console.log(error.message)
-      });
-    }
-  } 
 };
 
 mergeInto(LibraryManager.library, functions);

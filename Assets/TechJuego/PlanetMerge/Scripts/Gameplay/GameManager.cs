@@ -3,6 +3,8 @@ using TechJuego.PlanetMerge.Sound;
 using System.Collections.Generic;
 //using TechJuego.PlanetMerge.HapticFeedback;
 using TechJuego.PlanetMerge.Monetization;
+using TechJuego.PlanetMerge.Utils;
+
 namespace TechJuego.PlanetMerge
 {
     // The GameManager class handles game mechanics such as spawning items, combining them, and tracking game state.
@@ -49,6 +51,7 @@ namespace TechJuego.PlanetMerge
 
         public MergeItem currentMergeItem;
 
+        public int m_AdsScore;
         // Current score of the game
         private int m_Score = 0;
         private int lastTriggerScore = 0;
@@ -60,12 +63,10 @@ namespace TechJuego.PlanetMerge
                 m_Score = value;
                 GameEvents.OnUpdateScore?.Invoke();
 
-                if (m_Score - lastTriggerScore >= 500)
+                if (m_Score - lastTriggerScore >= m_AdsScore)
                 {
-                    lastTriggerScore = m_Score - (m_Score % 500); // store the last multiple of 3000
-                    GameDistribution.Instance.ShowAd();
-                    GameDistribution.Instance.SendEvent("Ads");
-                    //AdsHandler.Instance.ShowInterstitial();
+                    lastTriggerScore = m_Score - (m_Score % m_AdsScore); // store the last multiple of 3000
+                    AdsHandler.Instance.ShowInterstitial();
                 }
             }
         }
@@ -250,7 +251,68 @@ namespace TechJuego.PlanetMerge
                     }
                 }
             }
+            if(GameStateHandler.Instance.m_GameState == GameState.InProgress)
+            {
+                if (currentMergeItem != null)
+                {
+                    if (!m_BombSelected)
+                    {
+                        // Prevent interaction if the pointer is over a UI element
+                        if (UiUtility.IsPointerOverUIObject())
+                        {
+                            return;
+                        }
+
+                        if (currentMergeItem.itemState == ItemState.Ready)
+                        {
+                            GameEvents.OnMosueDown?.Invoke(currentMergeItem.transform.position);
+                        }
+
+                        //// Handle item dragging behavior when it is in the 'Ready' state
+                        if (currentMergeItem.itemState == ItemState.Ready)
+                        {
+
+                            if (Input.GetMouseButtonDown(0)) // On mouse down, start dragging
+                            {
+                                isDraging = true;
+                                currentMergeItem.offset = currentMergeItem.transform.position - GetMouseWorldPosition();  // Store the offset from the mouse
+                            }
+
+                            if (Input.GetMouseButtonUp(0) && isDraging) // On mouse up, stop dragging and drop the item
+                            {
+                                isDraging = false;
+                                currentMergeItem.m_Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+                                currentMergeItem.m_Rigidbody2D.gravityScale = 1f;  // Enable gravity
+                                currentMergeItem.itemState = ItemState.Dropping;  // Change state to Dropping
+                                GameManager.Instance.currentMergeItem = null;
+                                GameManager.Instance.CreateItem();  // Create new fruit item
+                                GameEvents.OnMosueUp?.Invoke();
+                            }
+
+                            // Update the item position if it is being dragged
+                            if (isDraging)
+                            {
+                                if (currentMergeItem.itemState == ItemState.Ready)
+                                {
+                                    // Update the position of the item to follow the mouse
+                                    Vector3 mousePos = GetMouseWorldPosition() + currentMergeItem.offset;
+                                    currentMergeItem.transform.position = new Vector3(Mathf.Clamp(mousePos.x, -currentMergeItem.limit_x, currentMergeItem.limit_x),
+                                    currentMergeItem.transform.position.y, currentMergeItem.transform.position.z);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+        private Vector3 GetMouseWorldPosition()
+        {
+            Vector3 mousePoint = Input.mousePosition;
+            mousePoint.z = Camera.main.WorldToScreenPoint(transform.position).z;
+            return Camera.main.ScreenToWorldPoint(mousePoint);
+        }
+
+        private bool isDraging;
         private void OnEnable()
         {
             GameEvents.OnSelectBooster += GameEvents_OnSelectBooster;

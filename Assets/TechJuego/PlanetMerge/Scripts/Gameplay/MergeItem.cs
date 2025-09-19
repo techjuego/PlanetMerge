@@ -18,7 +18,7 @@ namespace TechJuego.PlanetMerge
 
         [SerializeField]private GameObject m_DestorySymbol;
 
-        private Rigidbody2D m_Rigidbody2D;
+        public Rigidbody2D m_Rigidbody2D;
         
 
         // Called when the object is enabled
@@ -52,81 +52,10 @@ namespace TechJuego.PlanetMerge
             m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
             m_DestorySymbol.SetActive(false);
         }
-        // Get the world position of the mouse pointer
-        private Vector3 GetMouseWorldPosition()
-        {
-            Vector3 mousePoint = Input.mousePosition;
-            mousePoint.z = Camera.main.WorldToScreenPoint(transform.position).z;
-            return Camera.main.ScreenToWorldPoint(mousePoint);
-        }
+    
 
         // Offset used to keep track of the mouse position while dragging the item
-        Vector3 offset;
-        private bool isDraging = false;
-
-        // Called every frame to update item behavior
-        void Update()
-        {
-                // Show highlight when the item is ready for interaction
-                if (itemState == ItemState.Ready)
-                {
-                    GameEvents.OnMosueDown?.Invoke(transform.position);
-                }
-                else
-                {
-                    // m_Highlight.gameObject.SetActive(false);
-                }
-
-                // Prevent interaction if the pointer is over a UI element
-                if (UiUtility.IsPointerOverUIObject())
-                {
-                    return;
-                }
-
-                // Ensure game logic runs only when the game state is 'InProgress'
-                if (GameStateHandler.Instance.m_GameState != GameState.InProgress)
-                {
-                    return;
-                }
-
-                if (GameManager.Instance.m_BombSelected)
-                    return;
-
-
-                // Handle item dragging behavior when it is in the 'Ready' state
-                if (GameStateHandler.Instance.m_GameState == GameState.InProgress && itemState == ItemState.Ready)
-                {
-
-                    if (Input.GetMouseButtonDown(0)) // On mouse down, start dragging
-                    {
-                        isDraging = true;
-                        offset = transform.position - GetMouseWorldPosition();  // Store the offset from the mouse
-                    }
-
-                    if (Input.GetMouseButtonUp(0) && isDraging) // On mouse up, stop dragging and drop the item
-                    {
-                        isDraging = false;
-                        m_Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-                        m_Rigidbody2D.gravityScale = 1f;  // Enable gravity
-                        itemState = ItemState.Dropping;  // Change state to Dropping
-                        GameManager.Instance.currentMergeItem = null;
-                        GameManager.Instance.CreateItem();  // Create new fruit item
-                        GameEvents.OnMosueUp?.Invoke();
-                    }
-
-                    // Update the item position if it is being dragged
-                    if (isDraging)
-                    {
-                        if (itemState == ItemState.Ready)
-                        {
-                            // Update the position of the item to follow the mouse
-                            Vector3 mousePos = GetMouseWorldPosition() + offset;
-                            gameObject.transform.position = new Vector3(Mathf.Clamp(mousePos.x, -limit_x, limit_x),
-                            gameObject.transform.position.y, gameObject.transform.position.z);
-                        }
-                    }
-                }
-        }
+       public Vector3 offset;
 
         // Method to handle collision events
         private void OnCollisionEnter2D(Collision2D collision)

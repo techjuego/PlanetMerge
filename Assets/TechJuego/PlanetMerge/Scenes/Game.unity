@@ -9694,6 +9694,7 @@ MonoBehaviour:
   m_BombImage: {fileID: 327348969}
   m_BombEffect: {fileID: 9100685673373541579, guid: 04eff91323462494e9ef45dcf9217e3f, type: 3}
   currentMergeItem: {fileID: 0}
+  m_AdsScore: 2000
   rangeSize: 0
   MaxRangeSize: 5
   spawnedItemIndex: 0

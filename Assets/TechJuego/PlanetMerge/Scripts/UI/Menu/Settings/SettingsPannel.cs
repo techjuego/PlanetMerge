@@ -45,7 +45,6 @@ namespace TechJuego.PlanetMerge
             m_SfxButton.OnClicEvent.RemoveAllListeners();
             m_SfxButton.OnClicEvent.AddListener(Button_SFX);
 
-            GameDistribution.Instance.SendEvent("Settings");
 
            // m_Vibration.Initialize(HapticSetting.HapticViration);
 
