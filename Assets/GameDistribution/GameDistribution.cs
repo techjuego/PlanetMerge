@@ -29,6 +29,9 @@ public class GameDistribution : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void SDK_SendEvent(string options);
 
+    [DllImport("__Internal")]
+    private static extern void SDK_ExecuteStoreAction(string options);
+
     private bool _isRewardedVideoLoaded = false;
 
     void Awake()
@@ -56,9 +59,9 @@ public class GameDistribution : MonoBehaviour
     }
     internal void ShowAd()
     {
-        Debug.Log(">>>>");
         try
         {
+            Debug.Log("ShowAds");
             SDK_ShowAd(null);
         }
         catch (EntryPointNotFoundException e)
@@ -71,6 +74,7 @@ public class GameDistribution : MonoBehaviour
     {
         try
         {
+            Debug.Log("ShowRewardedAd");
             SDK_ShowAd("rewarded");
         }
         catch (EntryPointNotFoundException e)
@@ -100,6 +104,18 @@ public class GameDistribution : MonoBehaviour
         catch (EntryPointNotFoundException e)
         {
             Debug.LogWarning("GD SendEvent failed. Make sure you are running a WebGL build in a browser:" + e.Message);
+        }
+    }
+
+    internal void ExecuteStoreAction(string options)
+    {
+        try
+        {
+            SDK_ExecuteStoreAction(options);
+        }
+        catch (EntryPointNotFoundException e)
+        {
+            Debug.LogWarning("GD ExecuteStoreAction failed. Make sure you are running a WebGL build in a browser:" + e.Message);
         }
     }
     /// <summary>

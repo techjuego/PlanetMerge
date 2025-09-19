@@ -64,6 +64,7 @@ namespace TechJuego.PlanetMerge
                 {
                     lastTriggerScore = m_Score - (m_Score % 500); // store the last multiple of 3000
                     GameDistribution.Instance.ShowAd();
+                    GameDistribution.Instance.SendEvent("Ads");
                     //AdsHandler.Instance.ShowInterstitial();
                 }
             }
@@ -139,7 +140,6 @@ namespace TechJuego.PlanetMerge
                 rangeSize = MaxRangeSize;
             }
             int num = GetWeightedRandomIndex(rangeSize);
-            Debug.Log(num);
             if (mergeItems != null)
             {
                 MergeItem item = mergeItems[num];
