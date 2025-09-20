@@ -855,7 +855,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    WebGL: GAMEDISTRIBUTION
+    WebGL: GAMEPIX
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
